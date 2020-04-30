@@ -1,0 +1,8 @@
+apiVersion: v1
+description: A Helm chart for deploying petclinic
+name: petclinic
+version: 1
+dependencies:
+- name: mysql
+  version: "1"
+  repository: "http://192.168.99.114:32283/"

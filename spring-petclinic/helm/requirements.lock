@@ -1,0 +1,6 @@
+dependencies:
+- name: mysql
+  repository: http://192.168.99.114:32283/
+  version: "1"
+digest: sha256:752674bf319423748db87d1bf58ac69b399cb933d5e3997b83983e0ea5f85d48
+generated: "2020-04-29T23:52:10.9212669+03:00"

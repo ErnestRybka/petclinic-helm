@@ -1,0 +1,24 @@
+image: "mysql"
+imageTag: "5.7.28"
+imagePullPolicy: IfNotPresent
+
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 100m
+
+## Password for root user
+# mysqlRootPassword: testing
+
+## Create a database user
+# mysqlUser:
+# mysqlPassword:
+
+# mysqlAllowEmptyPassword: true
+
+## Create a database
+# mysqlDatabase:
+
+service:
+  type: NodePort
+  port: 3306

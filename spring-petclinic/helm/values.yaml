@@ -1,0 +1,12 @@
+replicas: 1
+java_opt: {
+  -Dspring.profiles.active=mysql
+  -Dspring.datasource.url=jdbc:mysql://localhost/petclinic
+}
+service:
+  type: NodePort
+
+mysql:
+  mysqlDatabase: petclinic
+  mysqlUser: petclinic
+  mysqlPassword: petclinic
