@@ -14,14 +14,30 @@ spec:
       labels:
         app: {{ .Chart.Name }}
     spec:
+      initContainers:
+        - name: prometheus-jmx-exporter
+          image: spdigital/prometheus-jmx-exporter-kubernetes:latest
+          env:
+          - name: SHARED_VOLUME_PATH
+            value: /shared-volume
+          volumeMounts:
+          - mountPath: /shared-volume
+            name: shared-volume
       containers:
       - name: petclinic
         env:
         - name: JAVA_OPTS
           value: >
-            -Dspring.config.additional-location=/etc/secrets/deploy.properties
-            -Dserver.port=8080
+            {{ .Values.java_opt }}
         image: rybkaer/petclinic:latest
         ports:
         - containerPort: 8080
           protocol: TCP
+        - containerPort: 19000
+          protocol: TCP
+        volumeMounts:
+          - mountPath: /shared-volume
+            name: shared-volume
+      volumes:
+        - name: shared-volume
+          emptyDir: {}

@@ -8,7 +8,12 @@ spec:
   selector:
     app: {{ .Chart.Name }}
   ports:
-  - protocol: "TCP"
+  - name: petclinic
+    protocol: "TCP"
     port: 8080
     targetPort: 8080
+  - name: metrics
+    protocol: "TCP"
+    port: 19000
+    targetPort: 19000
   type: LoadBalancer

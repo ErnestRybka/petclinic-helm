@@ -1,12 +1,4 @@
 replicas: 1
-java_opt: {
-  -Dspring.profiles.active=mysql
-  -Dspring.datasource.url=jdbc:mysql://localhost/petclinic
-}
+java_opt: -Dspring.profiles.active=mysql -javaagent:/shared-volume/jmx_prometheus_javaagent.jar=19000:/shared-volume/configs/kafka-config.yaml
 service:
   type: NodePort
-
-mysql:
-  mysqlDatabase: petclinic
-  mysqlUser: petclinic
-  mysqlPassword: petclinic
